@@ -1,7 +1,7 @@
-import ColorEnum from './Colors'
+import ColorRange from './Colors'
 
 class Cell{
-  color: ColorEnum;
+  color: ColorRange;
 }
 
 export default Cell;

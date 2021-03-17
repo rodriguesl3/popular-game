@@ -1,6 +1,13 @@
-enum ColorEnum{
-  Red = "#ff0000",
-  Orange = "#ff9400",
-  Blue = "#0000FF"
+class ColorRange {
+  static colors = [
+    { id: 1, color: "#ff0000",name:"red" },
+    { id: 2, color: "#ff9400",name:"orange" },
+    { id: 3, color: "#0000FF",name:"blue" }
+  ]
+
+  static getRandomColor(){
+    const index = Math.floor(Math.random() * this.colors.length-1) + 1;
+    return this.colors[index];
+  }
 }
-export default ColorEnum;
+export default ColorRange;
