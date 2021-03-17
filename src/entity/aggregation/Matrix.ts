@@ -1,7 +1,8 @@
 import Cell from "./Cell";
+import { ColorType } from "./ColorRange";
 
 class Matrix {
-  row: Cell[]
+  column: ColorType[]
 }
 
 export default Matrix;

@@ -2,24 +2,21 @@ import BoardEntity from "../entity/BoardEntity";
 
 class GamesRepository {
   private static currentGames: BoardEntity[] = [];
-  constructor() {    
-    
-  }
 
   static addNewGame(board: BoardEntity): boolean {
-    GamesRepository.currentGames.push(board);
+    this.currentGames.push(board);
     return true;
   };
   static updateBoardGame(board: BoardEntity): boolean {
-    const index = GamesRepository.currentGames.findIndex(elm => elm.id === board.id);
-    GamesRepository.currentGames.splice(index, 1, board);
+    const index = this.currentGames.findIndex(elm => elm.id === board.id);
+    this.currentGames.splice(index, 1, board);
     return true;
   };
   static getBoardGameById(id: number): BoardEntity {
-    return GamesRepository.currentGames.find(board => board.id === id);
+    return this.currentGames.find(board => board.id === id);
   };
   static removeAllBoards(): boolean {
-    GamesRepository.currentGames = [];
+    this.currentGames = [];
     return true;
   }
 

@@ -28,6 +28,22 @@ describe('check repository', () => {
     expect(board.id).toEqual(newBoard.id);
   })
 
+  test("updated boards", () => {
+    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const newBoard: BoardEntity = {
+      id: 0,
+      currentPosition: { 0: 0 },
+      state: matrix,
+    }
+
+    const updatedBoard = { ...newBoard, currentPosition: { 5: 2 } };
+
+    GamesRepository.addNewGame(newBoard);
+    GamesRepository.updateBoardGame(updatedBoard)
+    const board = GamesRepository.getBoardGameById(newBoard.id);
+    expect(board.currentPosition).toEqual({ 5: 2 })
+  })
+
   test("remove all boards", () => {
     const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
     const newBoard: BoardEntity = {

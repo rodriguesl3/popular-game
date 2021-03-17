@@ -11,7 +11,7 @@ describe('board validation', () => {
     const newBoard = result.state;
 
     expect(newBoard.length).toEqual(2);
-    expect(newBoard[0].row.length).toEqual(2);
+    expect(newBoard[0].column.length).toEqual(2);
   });
 
   test('create a board 4x4', () => {
@@ -19,9 +19,8 @@ describe('board validation', () => {
     const result = instance.buildBoard(4);
     const newBoard = result.state;
 
-
     expect(newBoard.length).toEqual(4);
-    expect(newBoard[0].row.length).toEqual(4);
+    expect(newBoard[0].column.length).toEqual(4);
   });
 
   test('create a board 6x6', () => {
@@ -30,7 +29,7 @@ describe('board validation', () => {
     const newBoard = result.state;
 
     expect(newBoard.length).toEqual(6);
-    expect(newBoard[0].row.length).toEqual(6);
+    expect(newBoard[0].column.length).toEqual(6);
   });
 
   test('create an empty board []', () => {
