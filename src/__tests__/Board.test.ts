@@ -6,7 +6,7 @@ import IBoard from "../services/IBoard";
 describe('board validation', () => {
 
   test('create a board 2x2', () => {
-    const instance:IBoard = new Board();
+    const instance: IBoard = new Board();
     const result = instance.buildBoard(2);
     const newBoard = result.state;
 
@@ -14,8 +14,8 @@ describe('board validation', () => {
     expect(newBoard[0].row.length).toEqual(2);
   });
 
-  test('create a board 4x4',()=>{
-    const instance:IBoard = new Board();
+  test('create a board 4x4', () => {
+    const instance: IBoard = new Board();
     const result = instance.buildBoard(4);
     const newBoard = result.state;
 
@@ -24,8 +24,8 @@ describe('board validation', () => {
     expect(newBoard[0].row.length).toEqual(4);
   });
 
-  test('create a board 6x6',()=>{
-    const instance:IBoard = new Board();
+  test('create a board 6x6', () => {
+    const instance: IBoard = new Board();
     const result = instance.buildBoard(6);
     const newBoard = result.state;
 
@@ -33,11 +33,19 @@ describe('board validation', () => {
     expect(newBoard[0].row.length).toEqual(6);
   });
 
-  test('create an empty board []',()=>{
-    const instance:IBoard = new Board();
+  test('create an empty board []', () => {
+    const instance: IBoard = new Board();
     const result = instance.buildBoard(-1);
     const newBoard = result.state;
 
     expect(newBoard.length).toEqual(0);
   });
+});
+
+describe('make moves', () => {
+  test.todo('make first move');
+  test.todo('make second move to right');
+  test.todo('make second move to up');
+  test.todo('make second move to down');
+  test.todo('make invalid move');
 })

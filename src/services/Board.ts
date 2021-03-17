@@ -1,5 +1,6 @@
 import Cell from "../entity/aggregation/Cell";
 import ColorRange from "../entity/aggregation/Colors";
+import DirectionEnum from "../entity/aggregation/DirectionEnum";
 import Matrix from "../entity/aggregation/Matrix";
 import BoardEntity from "../entity/BoardEntity";
 import IBoard from "./IBoard";
@@ -18,6 +19,9 @@ class Board implements IBoard {
       }
     }
     return newBoard;
+  }
+  makeMove(board: number, position: number[], direction: DirectionEnum): BoardEntity {
+    throw new Error("Method not implemented.");
   }
 }
 
