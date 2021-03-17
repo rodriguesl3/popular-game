@@ -1,5 +1,5 @@
-import App from "./app";
-import GameController from "./GameController";
+import App from "./loader/app";
+import GameController from "./controllers/GameController";
 
 const app = new App([
   new GameController(),

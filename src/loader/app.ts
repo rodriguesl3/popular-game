@@ -1,5 +1,5 @@
 import * as express from 'express';
-import Controller from './IController';
+import Controller from '../controllers/IController';
 
 class App{
   public app: express.Application
