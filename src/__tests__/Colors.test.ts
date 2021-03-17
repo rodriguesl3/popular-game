@@ -1,4 +1,4 @@
-import ColorRange from "../entity/aggregation/Colors";
+import ColorRange from "../entity/aggregation/ColorRange";
 
 describe('board validation', () => {
 

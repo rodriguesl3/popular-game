@@ -4,7 +4,8 @@ import BoardEntity from "../entity/BoardEntity";
 
 interface IBoard {
   buildBoard(size: number): BoardEntity;
-  makeMove(board: number, position: number[], direction: DirectionEnum): BoardEntity;
+  makeMove(board: number, direction: DirectionEnum): BoardEntity;
+  calculateColors(board:BoardEntity):BoardEntity;
 }
 
 export default IBoard

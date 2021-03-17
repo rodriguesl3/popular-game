@@ -1,0 +1,43 @@
+import BoardEntity from "../entity/BoardEntity";
+import GamesRepository from "../repository/Games";
+
+describe('check repository', () => {
+  afterEach(() => {
+    GamesRepository.removeAllBoards();
+  })
+  test('add new board', () => {
+    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const newBoard: BoardEntity = {
+      id: 0,
+      currentPosition: { 0: 0 },
+      state: matrix,
+    }
+    const result = GamesRepository.addNewGame(newBoard);
+    expect(result).toEqual(true);
+  })
+
+  test("get by id", () => {
+    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const newBoard: BoardEntity = {
+      id: 0,
+      currentPosition: { 0: 0 },
+      state: matrix,
+    }
+    GamesRepository.addNewGame(newBoard);
+    const board = GamesRepository.getBoardGameById(newBoard.id);
+    expect(board.id).toEqual(newBoard.id);
+  })
+
+  test("remove all boards", () => {
+    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const newBoard: BoardEntity = {
+      id: 0,
+      currentPosition: { 0: 0 },
+      state: matrix,
+    }
+    GamesRepository.addNewGame(newBoard);
+    GamesRepository.removeAllBoards();
+    const board = GamesRepository.getBoardGameById(newBoard.id);
+    expect(board).toBeUndefined();
+  })
+})

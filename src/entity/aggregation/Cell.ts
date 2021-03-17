@@ -1,4 +1,4 @@
-import ColorRange from './Colors'
+import ColorRange from './ColorRange'
 
 class Cell{
   color: ColorRange;

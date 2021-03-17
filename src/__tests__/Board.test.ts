@@ -1,7 +1,7 @@
-import ColorRange from "../entity/aggregation/Colors";
-import Matrix from "../entity/aggregation/Matrix";
 import Board from "../services/Board";
 import IBoard from "../services/IBoard";
+
+
 
 describe('board validation', () => {
 
@@ -41,11 +41,3 @@ describe('board validation', () => {
     expect(newBoard.length).toEqual(0);
   });
 });
-
-describe('make moves', () => {
-  test.todo('make first move');
-  test.todo('make second move to right');
-  test.todo('make second move to up');
-  test.todo('make second move to down');
-  test.todo('make invalid move');
-})
