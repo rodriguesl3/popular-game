@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node ./src/index.ts",
     "test": "npx jest",
-    "test: cov": "jest --coverage"
+    "test:cov": "jest --coverage"
   },
   "author": "Lucas Rodrigues",
   "license": "MIT",
