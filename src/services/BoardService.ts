@@ -66,13 +66,10 @@ class BoardService implements IBoardService {
   calculateColors(board: BoardEntity): any {
     const [[currRow, currColumn]] = Object.entries(board.currentPosition);
     const [[prevRow, prevColumn]] = Object.entries(board.previousPosition!);
-    const boardSize = { row: board.state.length, column: board.state[0].column.length };
+    
 
     const currentColor = { ...board.state[+currRow].column[+currColumn] };
     const prevColor = { ...board.state[+prevRow].column[+prevColumn] };
-
-    //board.state[+prevRow].column[+prevColumn] = currentColor;
-
 
     for (let rowIndex = +currRow; rowIndex >= 0; rowIndex--) {
       const rowElement = board.state[rowIndex];
@@ -84,20 +81,9 @@ class BoardService implements IBoardService {
       }
     }
 
-    // for (const row of board.state) {
-    //   console.log(row) ;
-    // }
-
-
     GamesRepository.updateBoardGame(board);
 
-
-
     return board;
-  }
-
-  private updateColors(board: BoardEntity, size: { row: number, column: number }) {
-
   }
 }
 
