@@ -10,6 +10,7 @@ class BoardEntity {
   constructor() {
     this.id = new Date().getTime();
     this.state = [];
+    this.currentPosition = {};
   }
 }
 

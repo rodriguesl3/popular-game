@@ -12,7 +12,7 @@ class GamesRepository {
     this.currentGames.splice(index, 1, board);
     return true;
   };
-  static getBoardGameById(id: number): BoardEntity {
+  static getBoardGameById(id: number): BoardEntity | undefined {
     return this.currentGames.find(board => board.id === id);
   };
   static removeAllBoards(): boolean {

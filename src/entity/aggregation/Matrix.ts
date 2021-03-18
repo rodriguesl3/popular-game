@@ -1,8 +1,11 @@
-import Cell from "./Cell";
 import { ColorType } from "./ColorRange";
 
 class Matrix {
-  column: ColorType[]
+  column: ColorType[];
+  
+  constructor() {
+    this.column=[];
+  }
 }
 
 export default Matrix;

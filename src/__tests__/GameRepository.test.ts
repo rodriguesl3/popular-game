@@ -6,7 +6,7 @@ describe('check repository', () => {
     GamesRepository.removeAllBoards();
   })
   test('add new board', () => {
-    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const matrix = [{ "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
     const newBoard: BoardEntity = {
       id: 0,
       currentPosition: { 0: 0 },
@@ -17,7 +17,7 @@ describe('check repository', () => {
   })
 
   test("get by id", () => {
-    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const matrix = [{ "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
     const newBoard: BoardEntity = {
       id: 0,
       currentPosition: { 0: 0 },
@@ -25,11 +25,11 @@ describe('check repository', () => {
     }
     GamesRepository.addNewGame(newBoard);
     const board = GamesRepository.getBoardGameById(newBoard.id);
-    expect(board.id).toEqual(newBoard.id);
+    expect(board!.id).toEqual(newBoard.id);
   })
 
   test("updated boards", () => {
-    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const matrix = [{ "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
     const newBoard: BoardEntity = {
       id: 0,
       currentPosition: { 0: 0 },
@@ -41,11 +41,11 @@ describe('check repository', () => {
     GamesRepository.addNewGame(newBoard);
     GamesRepository.updateBoardGame(updatedBoard)
     const board = GamesRepository.getBoardGameById(newBoard.id);
-    expect(board.currentPosition).toEqual({ 5: 2 })
+    expect(board!.currentPosition).toEqual({ 5: 2 })
   })
 
   test("remove all boards", () => {
-    const matrix = [{ "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "row": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
+    const matrix = [{ "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 2, "color": "#ff9400", "name": "orange" }] }, { "column": [{ "id": 2, "color": "#ff9400", "name": "orange" }, { "id": 3, "color": "#0000FF", "name": "blue" }] }];
     const newBoard: BoardEntity = {
       id: 0,
       currentPosition: { 0: 0 },

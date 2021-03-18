@@ -1,5 +1,5 @@
-import Board from "../services/Board";
-import IBoard from "../services/IBoard";
+import Board from "../services/BoardService";
+import IBoard from "../services/IBoardService";
 
 
 

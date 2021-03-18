@@ -2,10 +2,13 @@ import GamesRepository from "../repository/Games";
 import ColorRange, { ColorType } from "../entity/aggregation/ColorRange";
 import DirectionEnum from "../entity/aggregation/DirectionEnum";
 import BoardEntity from "../entity/BoardEntity";
-import IBoard from "./IBoard";
+import IBoardService from "./IBoardService";
 
 
-class Board implements IBoard {
+class BoardService implements IBoardService {
+  getBoardById(boardId: number): BoardEntity | undefined {
+    return GamesRepository.getBoardGameById(boardId);
+  }
   buildBoard(size: number): BoardEntity {
     const newBoard = new BoardEntity();
     if (size > 0) {
@@ -21,8 +24,12 @@ class Board implements IBoard {
     GamesRepository.addNewGame(newBoard);
     return newBoard;
   }
-  makeMove(boardId: number, direction: DirectionEnum): BoardEntity {
+  makeMove(boardId: number, direction: DirectionEnum): BoardEntity | null {
     const board = GamesRepository.getBoardGameById(boardId);
+    if (!board) {
+      return null;
+    }
+
     const [[key, value]] = Object.entries(board.currentPosition);
     let newRowPosition: number = +key;
     let newColumnPosition: number = +value;
@@ -58,7 +65,7 @@ class Board implements IBoard {
 
   calculateColors(board: BoardEntity): any {
     const [[currRow, currColumn]] = Object.entries(board.currentPosition);
-    const [[prevRow, prevColumn]] = Object.entries(board.previousPosition);
+    const [[prevRow, prevColumn]] = Object.entries(board.previousPosition!);
     const boardSize = { row: board.state.length, column: board.state[0].column.length };
 
     const currentColor = { ...board.state[+currRow].column[+currColumn] };
@@ -94,4 +101,4 @@ class Board implements IBoard {
   }
 }
 
-export default Board;
+export default BoardService;
