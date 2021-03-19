@@ -1,3 +1,4 @@
+import cors from 'cors';
 import Express, { Application } from 'express';
 import Controller from '../controllers/IController';
 
@@ -7,6 +8,7 @@ class App {
 
   constructor(controllers: Controller[]) {
     this.app = Express();
+    this.initCors();
     this.getControllerInstances(controllers);
   }
 
@@ -16,13 +18,25 @@ class App {
     });
   }
 
+
+  private initCors(){
+    const options: cors.CorsOptions = {
+      allowedHeaders: [
+        'Origin',
+        'Content-Type',
+        'Accept',
+      ],
+      methods: 'GET,PUT,POST',
+      origin: '*'
+    }
+    this.app.use(cors(options));
+  }
+
   private getControllerInstances(controllers: Controller[]) {
     controllers.forEach((controller) => {
       this.app.use('/', controller.router);
     });
   }
-
-
 }
 
 export default App;
