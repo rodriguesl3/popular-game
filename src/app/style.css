@@ -2,6 +2,11 @@ body {
   font-size: 10px;
 }
 
+h2{
+  width: 100%;
+  text-align: center;
+}
+
 .app{
   margin: auto;
   width: 60%;
